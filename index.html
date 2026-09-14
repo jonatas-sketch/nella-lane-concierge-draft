@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>DRAFT · Nella Lane Concierge</title>
+  <style>
+    :root {
+      --ink: #3D2E22;
+      --mute: #6A5544;
+      --gold: #B89968;
+      --line: #E7D8C2;
+      --cream: #FBF7F0;
+      --sand: #F4EADB;
+      --white: #fff;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      color: var(--ink);
+      background: #efe6d8;
+      -webkit-font-smoothing: antialiased;
+    }
+    .sans { font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif; }
+
+    .banner {
+      position: sticky; top: 0; z-index: 20;
+      background: #3D2E22; color: #FBF7F0;
+      padding: 10px 20px;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+      font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 12px; letter-spacing: 0.6px; text-transform: uppercase; font-weight: 700;
+    }
+    .banner span { opacity: 0.72; font-weight: 500; text-transform: none; letter-spacing: 0; }
+
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 28px 20px 80px; }
+
+    h1.page {
+      margin: 8px 0 6px;
+      font-size: clamp(28px, 4vw, 40px);
+      letter-spacing: -0.4px;
+    }
+    .lead { color: var(--mute); font-size: 16px; line-height: 1.55; max-width: 640px; margin: 0 0 28px; }
+
+    .tabs {
+      display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 28px;
+      font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+    }
+    .tabs a {
+      text-decoration: none; color: var(--ink);
+      border: 1px solid var(--line); background: var(--cream);
+      border-radius: 999px; padding: 8px 14px;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.3px;
+    }
+    .tabs a:hover { background: var(--white); }
+
+    .panel {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 22px 22px 26px;
+      margin: 0 0 22px;
+      box-shadow: 0 2px 14px rgba(107, 79, 58, 0.05);
+    }
+    .panel h2 {
+      margin: 0 0 6px;
+      font-size: 22px;
+      letter-spacing: -0.2px;
+    }
+    .kicker {
+      margin: 0 0 10px;
+      font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: 1.6px;
+      text-transform: uppercase; color: var(--gold);
+    }
+    .note {
+      font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 13px; color: var(--mute); line-height: 1.5; margin: 0 0 18px;
+    }
+
+    .iwt {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      align-items: stretch;
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .iwt img {
+      display: block; width: 100%; height: 100%; min-height: 360px;
+      object-fit: cover;
+    }
+    .iwt__copy { padding: 48px 40px; display: flex; flex-direction: column; justify-content: center; }
+    .iwt__cap {
+      font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: 1.8px;
+      text-transform: uppercase; color: var(--gold); margin: 0 0 10px;
+    }
+    .iwt h3 {
+      margin: 0 0 14px;
+      font-size: clamp(28px, 3.2vw, 38px);
+      line-height: 1.12; letter-spacing: -0.4px;
+    }
+    .iwt p.body { margin: 0 0 22px; font-size: 16px; line-height: 1.6; color: var(--mute); max-width: 420px; }
+    .iwt .cta {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: #3D2E22; color: #fff; text-decoration: none;
+      font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 13px; font-weight: 700; letter-spacing: 0.3px;
+      padding: 13px 20px; border-radius: 4px; border: 0; cursor: pointer;
+      width: fit-content;
+    }
+    .iwt .cta:hover { background: #2a1f17; }
+    .iwt .sla {
+      margin: 12px 0 0;
+      font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 12px; color: var(--mute); opacity: 0.8;
+    }
+    .img-note {
+      font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 11px; color: var(--mute); margin: 8px 0 0;
+    }
+
+    .chat-stage { position: relative; min-height: 420px; }
+    .chat {
+      position: absolute; right: 18px; bottom: 18px;
+      width: 340px; max-width: calc(100% - 24px);
+      background: #fff; border: 1px solid var(--line); border-radius: 16px;
+      box-shadow: 0 18px 40px rgba(61, 46, 34, 0.18);
+      overflow: hidden;
+      display: none;
+    }
+    .chat.is-open { display: flex; flex-direction: column; }
+    .chat__head {
+      background: #3D2E22; color: #FBF7F0; padding: 14px 16px;
+      font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+    }
+    .chat__head strong { display: block; font-size: 14px; }
+    .chat__head small { opacity: 0.7; font-size: 11px; }
+    .chat__body { padding: 14px 14px 10px; min-height: 220px; background: #faf7f3; }
+    .bubble {
+      background: #fff; border: 1px solid var(--line); border-radius: 12px;
+      padding: 11px 12px; font-size: 13.5px; line-height: 1.5; color: var(--ink);
+      white-space: pre-wrap;
+    }
+    .answers { display: flex; flex-direction: column; gap: 8px; padding: 0 14px 14px; background: #faf7f3; }
+    .answers button {
+      font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 13px; font-weight: 600; color: var(--ink);
+      background: #fff; border: 1px solid var(--line); border-radius: 999px;
+      padding: 9px 12px; text-align: left; cursor: pointer;
+    }
+    .answers button:hover { border-color: var(--gold); }
+    .answers button.is-redirect { color: var(--mute); }
+    .page-ghost {
+      background: var(--sand);
+      border-radius: 12px;
+      min-height: 380px;
+      display: flex; align-items: flex-end; justify-content: flex-start;
+      padding: 18px;
+      color: var(--mute);
+      font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 13px;
+    }
+
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif; font-size: 11px; letter-spacing: 0.8px; text-transform: uppercase; color: var(--mute); }
+    code { font-size: 12.5px; background: var(--sand); padding: 1px 5px; border-radius: 4px; }
+
+    .flow {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+      font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif; font-size: 13px;
+    }
+    .flow div {
+      background: var(--cream); border: 1px solid var(--line); border-radius: 12px; padding: 14px;
+    }
+    .flow strong { display: block; margin-bottom: 6px; }
+    .no { color: #8a3a2a; }
+
+    ol.steps { margin: 0; padding-left: 18px; color: var(--mute); }
+    ol.steps li { margin: 0 0 8px; }
+
+    @media (max-width: 780px) {
+      .iwt { grid-template-columns: 1fr; }
+      .iwt img { min-height: 240px; }
+      .iwt__copy { padding: 28px 22px; }
+      .flow { grid-template-columns: 1fr 1fr; }
+      .chat { position: relative; right: auto; bottom: auto; width: 100%; margin-top: 12px; }
+      .chat-stage { min-height: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="banner sans">
+    <strong>Draft — not live</strong>
+    <span>Nada publicado na loja, no tema ou no Shopify Inbox</span>
+  </div>
+
+  <div class="wrap">
+    <p class="kicker">Nella Lane · pré-venda</p>
+    <h1 class="page">Concierge — estrutura para análise</h1>
+    <p class="lead">Seção no fim da página. Um CTA. Inbox só abre por esse botão. Pós-venda continua fora.</p>
+
+    <nav class="tabs">
+      <a href="#secao">1. Seção</a>
+      <a href="#inbox">2. Inbox</a>
+      <a href="#onde">3. Onde entra</a>
+      <a href="#ativar">4. Se você aprovar</a>
+    </nav>
+
+    <section class="panel" id="secao">
+      <p class="kicker">Section · image-with-text</p>
+      <h2>O que o cliente vê</h2>
+      <p class="note">Schema real do Shrine. Imagem no preview é stand-in da loja — no JSON o <code>image_picker</code> vai vazio para você escolher no Theme Editor.</p>
+
+      <div class="iwt">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0679/8852/1142/files/hf_20260909_124110_4e75a197-d0a9-40cb-8a8c-7ffc33b8b487.png"
+          alt="Stand-in visual — bag already on Nella Lane CDN"
+        />
+        <div class="iwt__copy">
+          <p class="iwt__cap">Nella Lane Concierge</p>
+          <h3>Didn't find the one?</h3>
+          <p class="body">Our fashion assistant can help you source a color, a model, or a bag you saw somewhere else. Send a photo or a link — a real person will take it from there.</p>
+          <button class="cta" type="button" id="open-chat">Ask Nella Lane Concierge</button>
+          <p class="sla">We'll review your request within 48 hours.</p>
+        </div>
+      </div>
+      <p class="img-note">Stand-in: arquivo já existente no CDN da Nella. Trocar na ativação.</p>
+    </section>
+
+    <section class="panel" id="inbox">
+      <p class="kicker">Shopify Inbox · mock</p>
+      <h2>O que acontece no clique</h2>
+      <p class="note">Isto é simulação. O Inbox real não foi configurado. Clique no botão da seção acima — ou aqui — para ver greeting e instant answers.</p>
+
+      <div class="chat-stage">
+        <div class="page-ghost">Fim da página · sem bolha flutuante de chat</div>
+        <div class="chat" id="chat" aria-live="polite">
+          <div class="chat__head">
+            <strong>Nella Lane Concierge</strong>
+            <small>Pre-sale only · not live</small>
+          </div>
+          <div class="chat__body">
+            <div class="bubble" id="bubble">Hi — I help you find the right bag. Send a photo, a link or the model you have in mind.
+
+If you already placed an order, this chat can't help: email contact@nellalane.com or track it here.</div>
+          </div>
+          <div class="answers">
+            <button type="button" data-reply="Send a photo, a link or the model. A real person will review your request within 48 hours.">Find a bag</button>
+            <button type="button" data-reply="Tell us which bag and the color or model you want. We'll check if we can source it.">Another color or model</button>
+            <button class="is-redirect" type="button" data-reply="This chat is only for finding a bag — not for orders already placed.\n\nEmail: contact@nellalane.com\nTrack your order: https://nellalane.com/apps/orders/lookup">I already have an order</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="onde">
+      <p class="kicker">Placement</p>
+      <h2>Onde a seção entra — e onde não entra</h2>
+      <p class="note">Nenhum desses templates foi editado. Isto é a proposta de <code>order</code>.</p>
+      <table>
+        <thead>
+          <tr><th>Superfície</th><th>Depois de</th><th>Antes de</th><th>Por quê</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Home</td>
+            <td><code>about</code></td>
+            <td><code>support_nl</code> (Here to Help)</td>
+            <td>Pré-venda acima do bloco de telefone/e-mail</td>
+          </tr>
+          <tr>
+            <td>Collection</td>
+            <td><code>main</code></td>
+            <td>—</td>
+            <td>Escape hatch depois do grid</td>
+          </tr>
+          <tr>
+            <td>PDP bag</td>
+            <td><code>bag_details</code></td>
+            <td><code>related</code></td>
+            <td>Longe do Add to Cart</td>
+          </tr>
+          <tr>
+            <td class="no">Contact / thank-you / account</td>
+            <td>—</td>
+            <td>—</td>
+            <td>Pós-venda não entra neste canal</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="flow" style="margin-top:18px">
+        <div><strong>1. Vê a seção</strong>Não achou a bolsa / quer outra cor</div>
+        <div><strong>2. Clica o CTA</strong>Inbox abre. Sem bolha no site.</div>
+        <div><strong>3. Escolhe intenção</strong>Find a bag · outra cor · ou redirect</div>
+        <div><strong>4. Humano revisa</strong>48h no sourcing. Checkout por link.</div>
+      </div>
+    </section>
+
+    <section class="panel" id="ativar">
+      <p class="kicker">Ainda não feito</p>
+      <h2>Se você aprovar, nesta ordem</h2>
+      <ol class="steps">
+        <li>Escolher a imagem no Theme Editor.</li>
+        <li>Inserir <code>nl_concierge</code> em home / collection / PDP ainda <em>disabled</em>, conferir, só então ligar.</li>
+        <li>Não colocar a seção em <code>/pages/contact</code>.</li>
+        <li>Esconder a bolha do Inbox no tema.</li>
+        <li>Ligar o CTA <code>#nella-concierge</code> ao Inbox.</li>
+        <li>Colar greeting + 3 instant answers do SOP.</li>
+        <li>Regra do closer: tracking neste chat = um texto e fecha.</li>
+      </ol>
+    </section>
+  </div>
+
+  <script>
+    const chat = document.getElementById("chat");
+    const bubble = document.getElementById("bubble");
+    const open = () => { chat.classList.add("is-open"); };
+    document.getElementById("open-chat").addEventListener("click", open);
+    document.querySelectorAll(".answers button").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        bubble.textContent = btn.getAttribute("data-reply");
+      });
+    });
+  </script>
+</body>
+</html>
